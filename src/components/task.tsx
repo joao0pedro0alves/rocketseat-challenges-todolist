@@ -41,8 +41,11 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: theme.COLORS.GRAY_400,
     borderRadius: 8,
+
+    marginBottom: 8,
   },
   title: {
+    flex: 1,
     maxWidth: '75%',
     color: theme.COLORS.GRAY_100,
     fontSize: theme.FONT_SIZE.SM,

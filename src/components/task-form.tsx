@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 
 interface TaskFormProps {
-  onSubmit: (data: { taskName: string }) => void
+  onSubmit: (data: { name: string }) => void
 }
 
 export function TaskForm({ onSubmit }: TaskFormProps) {
@@ -14,7 +14,7 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
   function handleSubmit() {
     if (!taskName) return
 
-    onSubmit({ taskName })
+    onSubmit({ name: taskName })
     setTaskName('')
   }
 
