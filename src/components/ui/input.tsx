@@ -18,7 +18,8 @@ export function Input(props: InputProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    // width: '100%',
+    flex: 1,
 
     color: theme.COLORS.GRAY_100,
     fontSize: theme.FONT_SIZE.MD,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: 'transparent',
+    borderColor: theme.COLORS.GRAY_700,
 
     height: 54,
     padding: 16,

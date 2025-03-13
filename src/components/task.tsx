@@ -5,20 +5,20 @@ import { Checkbox } from './ui/checkbox'
 
 interface TaskProps {
   name: string
-  isComplete: boolean
+  isComplete?: boolean
   onToggleComplete: (checked: boolean) => void
 }
 
 export function Task({
   name,
-  isComplete: isDone = false,
+  isComplete = false,
   onToggleComplete,
 }: TaskProps) {
   return (
     <View style={styles.container}>
-      <Checkbox checked={isDone} onChange={onToggleComplete} />
+      <Checkbox checked={isComplete} onChange={onToggleComplete} />
 
-      <Text style={[styles.title, isDone && styles.titleDone]}>{name}</Text>
+      <Text style={[styles.title, isComplete && styles.titleDone]}>{name}</Text>
 
       <Button iconName="trash-2" />
     </View>

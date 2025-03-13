@@ -1,39 +1,32 @@
-import { StyleSheet, View } from 'react-native'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Task } from '@/components/task'
+import { Image, StyleSheet, View } from 'react-native'
+
+import logoImage from '@/assets/logo.png'
+import { TaskForm } from '@/components/task-form'
+import theme from '@/theme'
 
 export function Home() {
   return (
     <View style={styles.container}>
-      <Input placeholder="Adicione uma nova tarefa" />
+      <View style={styles.header}>
+        <Image source={logoImage} />
 
-      <Input placeholder="Adicione uma nova tarefa" value="ABC" />
-
-      <Button iconName="trash-2" />
-
-      <Button iconName="plus-circle" variant="SECONDARY" size="large" />
-
-      <Task
-        name="Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer."
-      />
-
-      <Task
-        name="Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer."
-        isComplete
-      />
+        <TaskForm />
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
     flex: 1,
+    backgroundColor: theme.COLORS.GRAY_600,
+  },
+  header: {
+    height: 173,
+    backgroundColor: theme.COLORS.GRAY_700,
+    padding: 24,
+
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 16,
   },
 })
