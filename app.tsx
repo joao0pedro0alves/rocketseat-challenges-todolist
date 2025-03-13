@@ -1,15 +1,15 @@
-import { useFonts } from 'expo-font'
-import { StatusBar } from 'expo-status-bar'
-import { Platform, StyleSheet, View } from 'react-native'
-
-import { Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/inter'
-import * as NavigationBar from 'expo-navigation-bar'
-
-import { Home } from './src/screens/Home'
-import theme from './src/theme'
-import { Loading } from './src/components/loading'
 import { useEffect } from 'react'
+import { Platform, StyleSheet } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+
+import { StatusBar } from 'expo-status-bar'
+import * as NavigationBar from 'expo-navigation-bar'
+import { useFonts } from 'expo-font'
+import { Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/inter'
+
+import { Loading } from '@/components/loading'
+import { Home } from '@/screens/Home'
+import theme from './src/theme'
 
 export function App() {
   const [fontsLoaded] = useFonts({
