@@ -9,21 +9,42 @@ const mockTasks: InTask[] = [
 ]
 
 export function TasksContextProvider({ children }: { children: ReactNode }) {
-  const [tasks] = useState<InTask[]>([...mockTasks])
+  const [tasks, setTasks] = useState<InTask[]>([...mockTasks])
 
-  const onAdd = useCallback(() => {}, [])
+  const addTask = useCallback((data: Pick<InTask, 'name'>) => {
+    const { name } = data
 
-  const onRemove = useCallback(() => {}, [])
+    const newTask: InTask = {
+      id: Date.now().toString(36), // Simple unique id
+      name,
+      isCompleted: false,
+    }
 
-  const onToogleCompleted = useCallback(() => {}, [])
+    setTasks(prevState => [newTask, ...prevState])
+  }, [])
+
+  const removeTask = useCallback((taskId: string) => {
+    setTasks(prevState => prevState.filter(task => task.id !== taskId))
+  }, [])
+
+  const toogleTaskCompletition = useCallback(
+    (taskId: string, checked: boolean) => {
+      setTasks(prevState =>
+        prevState.map(task =>
+          task.id !== taskId ? task : { ...task, isCompleted: checked }
+        )
+      )
+    },
+    []
+  )
 
   return (
     <TasksContext.Provider
       value={{
         data: tasks,
-        addTask: onAdd,
-        removeTask: onRemove,
-        toogleTaskCompletition: onToogleCompleted,
+        addTask,
+        removeTask,
+        toogleTaskCompletition,
       }}
     >
       {children}
