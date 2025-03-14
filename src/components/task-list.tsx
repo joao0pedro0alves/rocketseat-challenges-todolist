@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { FlatList, StyleSheet, View } from 'react-native'
+import { Alert, FlatList, StyleSheet, View } from 'react-native'
 
 import { Task } from './task'
 import { TaskListEmpty } from './task-list-empty'
@@ -14,7 +14,16 @@ export function TaskList() {
   }
 
   function handleRemoveTask(taskId: string) {
-    removeTask(taskId)
+    Alert.alert('Remover', 'Deseja remover a tarefa?', [
+      {
+        text: 'Sim',
+        onPress: () => removeTask(taskId),
+      },
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+    ])
   }
 
   const completedCount = useMemo(() => {
@@ -41,8 +50,6 @@ export function TaskList() {
           { paddingBottom: 100 },
           data.length === 0 && {
             flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
           },
         ]}
         renderItem={({ item }) => (
