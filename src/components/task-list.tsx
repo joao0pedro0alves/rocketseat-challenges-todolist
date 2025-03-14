@@ -4,19 +4,18 @@ import { FlatList, StyleSheet, View } from 'react-native'
 import { Task } from './task'
 import { TaskListEmpty } from './task-list-empty'
 import { TaskFilter } from './task-filter'
+import { useTasksContext } from '@/context/hooks/useTasksContext'
 
-export interface InTask {
-  id: string
-  name: string
-  isCompleted: boolean
-}
+export function TaskList() {
+  const { data, removeTask, toogleTaskCompletition } = useTasksContext()
 
-interface TaskListProps {
-  data: InTask[]
-}
+  function handleToggleComplete(taskId: string, checked: boolean) {
+    toogleTaskCompletition(taskId, checked)
+  }
 
-export function TaskList({ data }: TaskListProps) {
-  function handleToggleComplete(taskId: string, checked: boolean) {}
+  function handleRemoveTask(taskId: string) {
+    removeTask(taskId)
+  }
 
   const completedCount = useMemo(() => {
     return data.filter(task => task.isCompleted).length
@@ -51,6 +50,7 @@ export function TaskList({ data }: TaskListProps) {
             name={item.name}
             isComplete={item.isCompleted}
             onToggleComplete={checked => handleToggleComplete(item.id, checked)}
+            onRemove={() => handleRemoveTask(item.id)}
           />
         )}
       />

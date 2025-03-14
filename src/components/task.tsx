@@ -7,12 +7,14 @@ interface TaskProps {
   name: string
   isComplete?: boolean
   onToggleComplete: (checked: boolean) => void
+  onRemove: () => void
 }
 
 export function Task({
   name,
   isComplete = false,
   onToggleComplete,
+  onRemove,
 }: TaskProps) {
   return (
     <View style={styles.container}>
@@ -20,7 +22,7 @@ export function Task({
 
       <Text style={[styles.title, isComplete && styles.titleDone]}>{name}</Text>
 
-      <Button iconName="trash-2" />
+      <Button iconName="trash-2" onPress={onRemove} />
     </View>
   )
 }

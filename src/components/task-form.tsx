@@ -3,18 +3,17 @@ import { StyleSheet, View } from 'react-native'
 
 import { Button } from './ui/button'
 import { Input } from './ui/input'
+import { useTasksContext } from '@/context/hooks/useTasksContext'
 
-interface TaskFormProps {
-  onSubmit: (data: { name: string }) => void
-}
-
-export function TaskForm({ onSubmit }: TaskFormProps) {
+export function TaskForm() {
   const [taskName, setTaskName] = useState('')
+
+  const { addTask } = useTasksContext()
 
   function handleSubmit() {
     if (!taskName) return
 
-    onSubmit({ name: taskName })
+    addTask({ name: taskName })
     setTaskName('')
   }
 
