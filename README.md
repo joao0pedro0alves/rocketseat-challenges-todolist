@@ -11,8 +11,6 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/joao0pedro0alves/rocketseat-challenges-todolist">
   </a>
     
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-
    <a href="https://github.com/joao0pedro0alves/rocketseat-challenges-todolist/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/joao0pedro0alves/rocketseat-challenges-todolist?style=social">
   </a>
