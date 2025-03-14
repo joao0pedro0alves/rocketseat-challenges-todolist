@@ -6,7 +6,7 @@ import theme from '@/theme'
 export function TaskListEmpty() {
   return (
     <View style={styles.container}>
-      <Image source={clipboardImage} />
+      <Image style={{ marginTop: 100 }} source={clipboardImage} />
 
       <Text style={styles.title}>Você ainda não tem tarefas cadastradas</Text>
 
